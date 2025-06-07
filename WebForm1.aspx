@@ -1,94 +1,113 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication3.WebForm1" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta charset="utf-8" />
+    <title>職員查詢系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AcademicConnectionString %>" DeleteCommand="DELETE FROM [employee] WHERE [employeeID] = @employeeID" InsertCommand="INSERT INTO [employee] ([employeeID], [name], [ID], [gender], [title], [address], [onbord], [resign]) VALUES (@employeeID, @name, @ID, @gender, @title, @address, @onbord, @resign)" SelectCommand="SELECT [employeeID], [name], [ID], [gender], [title], [address], [onbord], [resign] FROM [employee]" UpdateCommand="UPDATE [employee] SET [name] = @name, [ID] = @ID, [gender] = @gender, [title] = @title, [address] = @address, [onbord] = @onbord, [resign] = @resign WHERE [employeeID] = @employeeID">
-                <DeleteParameters>
-                    <asp:Parameter Name="employeeID" Type="Int32" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="employeeID" Type="Int32" />
-                    <asp:Parameter Name="name" Type="String" />
-                    <asp:Parameter Name="ID" Type="String" />
-                    <asp:Parameter Name="gender" Type="String" />
-                    <asp:Parameter Name="title" Type="String" />
-                    <asp:Parameter Name="address" Type="String" />
-                    <asp:Parameter Name="onbord" Type="String" />
-                    <asp:Parameter Name="resign" Type="String" />
-                </InsertParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="name" Type="String" />
-                    <asp:Parameter Name="ID" Type="String" />
-                    <asp:Parameter Name="gender" Type="String" />
-                    <asp:Parameter Name="title" Type="String" />
-                    <asp:Parameter Name="address" Type="String" />
-                    <asp:Parameter Name="onbord" Type="String" />
-                    <asp:Parameter Name="resign" Type="String" />
-                    <asp:Parameter Name="employeeID" Type="Int32" />
-                </UpdateParameters>
+        <div class="container my-4">
+            <!-- 🔍 查詢功能 -->
+            <div class="mb-3">
+                <asp:Label ID="Label7" runat="server" Text="查詢職員編號：" CssClass="form-label"></asp:Label>
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control d-inline w-auto mx-2"></asp:TextBox>
+                <asp:Button ID="Button1" runat="server" Text="查詢" CssClass="btn btn-primary me-2" OnClick="Button1_Click" />
+                <asp:Button ID="Button2" runat="server" Text="顯示全部" CssClass="btn btn-secondary" OnClick="Button2_Click" />
+            </div>
+
+            <!-- 🗂️ 資料來源 -->
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+                ConnectionString="<%$ ConnectionStrings:AcademicConnectionString %>"
+                SelectCommand="">
             </asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:AcademicConnectionString %>" SelectCommand="SELECT [positionID], [position] FROM [employee_title]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:AcademicConnectionString %>" SelectCommand="SELECT   [gender]
-    
-      
-  FROM [dbo].[employee]
-  group by gender"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:AcademicConnectionString %>" SelectCommand="SELECT * FROM [VIEW2] WHERE ([teacher_id] = @teacher_id)">
+
+            <asp:SqlDataSource ID="SqlDataSource5" runat="server"
+                ConnectionString="<%$ ConnectionStrings:AcademicConnectionString %>"
+                SelectCommand="SELECT * FROM [VIEW2] WHERE ([teacher_id] = @teacher_id)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="GridView1" Name="teacher_id" PropertyName="SelectedValue" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:AcademicConnectionString %>" SelectCommand="SELECT * FROM [VIEW3] WHERE ([teacher_id] = @teacher_id)">
+
+            <asp:SqlDataSource ID="SqlDataSource6" runat="server"
+                ConnectionString="<%$ ConnectionStrings:AcademicConnectionString %>"
+                SelectCommand="SELECT * FROM [VIEW3] WHERE ([teacher_id] = @teacher_id)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="GridView2" Name="teacher_id" PropertyName="SelectedValue" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:Label ID="Label5" runat="server" Font-Size="20pt" Text="職員"></asp:Label>
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="#CCFFCC" DataKeyNames="employeeID" DataSourceID="SqlDataSource1" >
-                <Columns>
-                    <asp:BoundField DataField="employeeID" HeaderText="職員編號" ReadOnly="True" SortExpression="employeeID" />
-                    <asp:BoundField DataField="name" HeaderText="職員姓名" SortExpression="name" />
-                    <asp:BoundField DataField="ID" HeaderText="身分證字號" SortExpression="ID" />
-                    <asp:BoundField DataField="gender" HeaderText="性別" SortExpression="gender" />
-                    <asp:BoundField DataField="title" HeaderText="職位" SortExpression="title" />
-                    <asp:BoundField DataField="address" HeaderText="地址" SortExpression="address" />
-                    <asp:BoundField DataField="onbord" HeaderText="入值日期" SortExpression="onbord" />
-                    <asp:BoundField DataField="resign" HeaderText="離值日期" SortExpression="resign" />
-                    <asp:CommandField ShowSelectButton="True" />
-                </Columns>
-                <EditRowStyle BackColor="#66FFFF" BorderColor="#003366" />
-            </asp:GridView>
-            <asp:Label ID="Label4" runat="server" Font-Size="20pt" Text="授課查詢"></asp:Label>
-            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" DataKeyNames="teacher_id,course_id">
-                <Columns>
-                    <asp:BoundField DataField="teacher_id" HeaderText="教師編號" SortExpression="teacher_id" ReadOnly="True" />
-                    <asp:BoundField DataField="teacher_name" HeaderText="教師姓名" SortExpression="teacher_name" />
-                    <asp:BoundField DataField="course_id" HeaderText="課程編號" SortExpression="course_id" ReadOnly="True" />
-                    <asp:BoundField DataField="course_name" HeaderText="課程名稱" SortExpression="course_name" />
-                    <asp:BoundField DataField="credits" HeaderText="學分" SortExpression="credits" />
-                    <asp:CommandField ShowSelectButton="True" />
-                </Columns>
-            </asp:GridView>
-            <asp:Label ID="Label6" runat="server" Font-Size="20pt" Text="授課學生查詢"></asp:Label>
-            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6">
-                <Columns>
-                    <asp:BoundField DataField="teacher_id" HeaderText="教師編號" SortExpression="teacher_id" />
-                    <asp:BoundField DataField="teacher_name" HeaderText="教師姓名" SortExpression="teacher_name" />
-                    <asp:BoundField DataField="course_id" HeaderText="課程編號" SortExpression="course_id" />
-                    <asp:BoundField DataField="course_name" HeaderText="課程名稱" SortExpression="course_name" />
-                    <asp:BoundField DataField="student_id" HeaderText="學生編號" SortExpression="student_id" />
-                    <asp:BoundField DataField="student_name" HeaderText="學生姓名" SortExpression="student_name" />
-                </Columns>
-            </asp:GridView>
+
+            <!-- 👨‍💼 職員資料 -->
+            <div class="card my-4">
+                <div class="card-header bg-success text-white fs-5">職員資料</div>
+                <div class="card-body table-responsive">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
+                        CssClass="table table-bordered table-striped"
+                        DataSourceID="SqlDataSource1"
+                        DataKeyNames="employeeID"
+                        AllowPaging="True" PageSize="10"
+                        OnPageIndexChanging="GridView1_PageIndexChanging"
+                        OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+                        >
+                        <Columns>
+                            <asp:BoundField DataField="employeeID" HeaderText="職員編號" ReadOnly="True" />
+                            <asp:BoundField DataField="name" HeaderText="姓名" />
+                            <asp:BoundField DataField="ID" HeaderText="身分證字號" />
+                            <asp:BoundField DataField="gender" HeaderText="性別" />
+                            <asp:BoundField DataField="title" HeaderText="職位" />
+                            <asp:BoundField DataField="address" HeaderText="地址" />
+                            <asp:BoundField DataField="onbord" HeaderText="入值日期" />
+                            <asp:BoundField DataField="resign" HeaderText="離值日期" />
+                            <asp:CommandField ShowSelectButton="True" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
+
+            <!-- 📘 授課查詢 -->
+            <div class="card my-4">
+                <div class="card-header bg-primary text-white fs-5">授課查詢</div>
+                <div class="card-body table-responsive">
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False"
+                        CssClass="table table-striped table-bordered"
+                        DataSourceID="SqlDataSource5"
+                        DataKeyNames="teacher_id,course_id">
+                        <Columns>
+                            <asp:BoundField DataField="teacher_id" HeaderText="教師編號" ReadOnly="True" />
+                            <asp:BoundField DataField="teacher_name" HeaderText="教師姓名" />
+                            <asp:BoundField DataField="course_id" HeaderText="課程編號" ReadOnly="True" />
+                            <asp:BoundField DataField="course_name" HeaderText="課程名稱" />
+                            <asp:BoundField DataField="credits" HeaderText="學分" />
+                            <asp:CommandField ShowSelectButton="True" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
+
+            <!-- 🎓 授課學生查詢 -->
+            <div class="card my-4">
+                <div class="card-header bg-secondary text-white fs-5">授課學生查詢</div>
+                <div class="card-body table-responsive">
+                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False"
+                        CssClass="table table-striped table-bordered"
+                        DataSourceID="SqlDataSource6">
+                        <Columns>
+                            <asp:BoundField DataField="teacher_id" HeaderText="教師編號" />
+                            <asp:BoundField DataField="teacher_name" HeaderText="教師姓名" />
+                            <asp:BoundField DataField="course_id" HeaderText="課程編號" />
+                            <asp:BoundField DataField="course_name" HeaderText="課程名稱" />
+                            <asp:BoundField DataField="student_id" HeaderText="學生編號" />
+                            <asp:BoundField DataField="student_name" HeaderText="學生姓名" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
         </div>
     </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
