@@ -149,6 +149,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="TextFile1.txt" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
     <Content Include="WebForm3.aspx" />
