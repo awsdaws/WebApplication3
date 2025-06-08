@@ -150,10 +150,10 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="TextFile1.txt" />
-    <Content Include="WebForm1.aspx" />
-    <Content Include="WebForm2.aspx" />
-    <Content Include="WebForm3.aspx" />
-    <Content Include="WebForm4.aspx" />
+    <Content Include="職員查詢.aspx" />
+    <Content Include="職員新增.aspx" />
+    <Content Include="職員離職.aspx" />
+    <Content Include="職員修改.aspx" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -236,33 +236,33 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="職員查詢.aspx.cs">
+      <DependentUpon>職員查詢.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="職員查詢.aspx.designer.cs">
+      <DependentUpon>職員查詢.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="職員新增.aspx.cs">
+      <DependentUpon>職員新增.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="職員新增.aspx.designer.cs">
+      <DependentUpon>職員新增.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm3.aspx.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
+    <Compile Include="職員離職.aspx.cs">
+      <DependentUpon>職員離職.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm3.aspx.designer.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
+    <Compile Include="職員離職.aspx.designer.cs">
+      <DependentUpon>職員離職.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm4.aspx.cs">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
+    <Compile Include="職員修改.aspx.cs">
+      <DependentUpon>職員修改.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm4.aspx.designer.cs">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
+    <Compile Include="職員修改.aspx.designer.cs">
+      <DependentUpon>職員修改.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

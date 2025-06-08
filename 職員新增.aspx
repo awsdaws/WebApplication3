@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" Inherits="WebApplication3.WebForm2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="職員新增.aspx.cs" Inherits="WebApplication3.WebForm2" %>
 
 <!DOCTYPE html>
 

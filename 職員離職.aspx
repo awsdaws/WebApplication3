@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="WebApplication3.WebForm3" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="職員離職.aspx.cs" Inherits="WebApplication3.WebForm3" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
