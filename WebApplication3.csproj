@@ -150,6 +150,10 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="TextFile1.txt" />
+    <Content Include="學生新增.aspx" />
+    <Content Include="學生刪除.aspx" />
+    <Content Include="學生編輯.aspx" />
+    <Content Include="學生查詢.aspx" />
     <Content Include="職員查詢.aspx" />
     <Content Include="職員新增.aspx" />
     <Content Include="職員離職.aspx" />
@@ -235,6 +239,34 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="學生新增.aspx.cs">
+      <DependentUpon>學生新增.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="學生新增.aspx.designer.cs">
+      <DependentUpon>學生新增.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="學生刪除.aspx.cs">
+      <DependentUpon>學生刪除.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="學生刪除.aspx.designer.cs">
+      <DependentUpon>學生刪除.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="學生編輯.aspx.cs">
+      <DependentUpon>學生編輯.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="學生編輯.aspx.designer.cs">
+      <DependentUpon>學生編輯.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="學生查詢.aspx.cs">
+      <DependentUpon>學生查詢.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="學生查詢.aspx.designer.cs">
+      <DependentUpon>學生查詢.aspx</DependentUpon>
     </Compile>
     <Compile Include="職員查詢.aspx.cs">
       <DependentUpon>職員查詢.aspx</DependentUpon>
